@@ -48,8 +48,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbl_forceInput = new System.Windows.Forms.Label();
+            this.nud_errors = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_errors = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_waitTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_threads)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_errors)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,9 +88,9 @@
             this.gb_currentVote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gb_currentVote.Location = new System.Drawing.Point(12, 120);
+            this.gb_currentVote.Location = new System.Drawing.Point(12, 146);
             this.gb_currentVote.Name = "gb_currentVote";
-            this.gb_currentVote.Size = new System.Drawing.Size(456, 238);
+            this.gb_currentVote.Size = new System.Drawing.Size(456, 212);
             this.gb_currentVote.TabIndex = 3;
             this.gb_currentVote.TabStop = false;
             this.gb_currentVote.Text = "Current Vote";
@@ -240,17 +245,70 @@
             // lbl_forceInput
             // 
             this.lbl_forceInput.AutoSize = true;
-            this.lbl_forceInput.Location = new System.Drawing.Point(332, 97);
+            this.lbl_forceInput.Location = new System.Drawing.Point(326, 97);
             this.lbl_forceInput.Name = "lbl_forceInput";
             this.lbl_forceInput.Size = new System.Drawing.Size(47, 13);
             this.lbl_forceInput.TabIndex = 17;
             this.lbl_forceInput.Text = "Random";
+            // 
+            // nud_errors
+            // 
+            this.nud_errors.Location = new System.Drawing.Point(76, 120);
+            this.nud_errors.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_errors.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nud_errors.Name = "nud_errors";
+            this.nud_errors.Size = new System.Drawing.Size(100, 20);
+            this.nud_errors.TabIndex = 18;
+            this.nud_errors.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Max errors";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(263, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Errors:";
+            // 
+            // lbl_errors
+            // 
+            this.lbl_errors.AutoSize = true;
+            this.lbl_errors.Location = new System.Drawing.Point(326, 122);
+            this.lbl_errors.Name = "lbl_errors";
+            this.lbl_errors.Size = new System.Drawing.Size(13, 13);
+            this.lbl_errors.TabIndex = 21;
+            this.lbl_errors.Text = "0";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 370);
+            this.Controls.Add(this.lbl_errors);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.nud_errors);
             this.Controls.Add(this.lbl_forceInput);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -273,6 +331,7 @@
             this.Text = "Pingo Destroyer";
             ((System.ComponentModel.ISupportInitialize)(this.nud_waitTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_threads)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +358,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbl_forceInput;
+        private System.Windows.Forms.NumericUpDown nud_errors;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_errors;
     }
 }
 

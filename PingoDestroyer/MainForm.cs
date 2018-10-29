@@ -26,11 +26,13 @@ namespace PingoDestroyer
         Uri currentTarget;
         bool working = false;
 
+        int maxErrors = 1;
         int threadCount = 30;
         int waitMillis = 200;
         List<Thread> workers = new List<Thread>();
 
         int votesGiven = 0;
+        int errorsGot = 0;
         String statusText;
 
         List<int> forceInput = new List<int>();
@@ -61,6 +63,7 @@ namespace PingoDestroyer
                 this.sessionID = sid;
                 lbl_activeID.Text = this.sessionID.ToString();
 
+                this.maxErrors = Decimal.ToInt32(nud_errors.Value);
                 this.threadCount = Decimal.ToInt32(nud_threads.Value);
                 this.waitMillis = Decimal.ToInt32(nud_waitTime.Value);
 
@@ -245,6 +248,7 @@ namespace PingoDestroyer
         {
             stopGivingAnswers();
 
+            this.errorsGot = 0;
             this.votesGiven = 0;
             this.working = true;
 
@@ -264,7 +268,7 @@ namespace PingoDestroyer
 
             foreach (Thread t in workers)
                 if (t.IsAlive)
-                    t.Join();
+                    t.Abort();
         }
 
         private void answerThread()
@@ -284,10 +288,15 @@ namespace PingoDestroyer
                     {
                         if (response != null)
                             response.Dispose();
+
+                        this.errorsGot++;
+                        if (this.errorsGot < this.maxErrors)
+                            continue;
+
                         this.working = false;
                         status.Invoke((Action)delegate
                         {
-                            status.Text = "Got timeout or error!";
+                            status.Text = "Got too many errors!";
                         });
                         return;
                     }
@@ -314,6 +323,7 @@ namespace PingoDestroyer
                     Thread.Sleep(this.waitMillis);
                 }
             }
+            catch (ThreadAbortException) { }
             catch (Exception e)
             {
                 Program.LogException(e);
@@ -339,6 +349,7 @@ namespace PingoDestroyer
         private void timer_votesUpdate_Tick(object sender, EventArgs e)
         {
             lbl_votes.Text = this.votesGiven.ToString();
+            lbl_errors.Text = this.errorsGot.ToString();
         }
     }
 }
