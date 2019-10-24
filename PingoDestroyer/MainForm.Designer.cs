@@ -52,6 +52,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_errors = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_hostUrl = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lbl_activeHost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_waitTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_threads)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_errors)).BeginInit();
@@ -68,14 +72,14 @@
             // 
             // tb_sessionID
             // 
-            this.tb_sessionID.Location = new System.Drawing.Point(76, 12);
+            this.tb_sessionID.Location = new System.Drawing.Point(87, 12);
             this.tb_sessionID.Name = "tb_sessionID";
             this.tb_sessionID.Size = new System.Drawing.Size(100, 20);
             this.tb_sessionID.TabIndex = 1;
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(182, 10);
+            this.btn_start.Location = new System.Drawing.Point(193, 10);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(75, 23);
             this.btn_start.TabIndex = 2;
@@ -88,9 +92,9 @@
             this.gb_currentVote.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gb_currentVote.Location = new System.Drawing.Point(12, 146);
+            this.gb_currentVote.Location = new System.Drawing.Point(12, 169);
             this.gb_currentVote.Name = "gb_currentVote";
-            this.gb_currentVote.Size = new System.Drawing.Size(456, 212);
+            this.gb_currentVote.Size = new System.Drawing.Size(456, 156);
             this.gb_currentVote.TabIndex = 3;
             this.gb_currentVote.TabStop = false;
             this.gb_currentVote.Text = "Current Vote";
@@ -98,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(263, 15);
+            this.label2.Location = new System.Drawing.Point(274, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 4;
@@ -107,7 +111,7 @@
             // lbl_activeID
             // 
             this.lbl_activeID.AutoSize = true;
-            this.lbl_activeID.Location = new System.Drawing.Point(326, 15);
+            this.lbl_activeID.Location = new System.Drawing.Point(348, 15);
             this.lbl_activeID.Name = "lbl_activeID";
             this.lbl_activeID.Size = new System.Drawing.Size(33, 13);
             this.lbl_activeID.TabIndex = 5;
@@ -115,7 +119,7 @@
             // 
             // btn_stop
             // 
-            this.btn_stop.Location = new System.Drawing.Point(182, 39);
+            this.btn_stop.Location = new System.Drawing.Point(193, 39);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(75, 23);
             this.btn_stop.TabIndex = 6;
@@ -126,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(263, 44);
+            this.label3.Location = new System.Drawing.Point(263, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 7;
@@ -135,7 +139,7 @@
             // lbl_votes
             // 
             this.lbl_votes.AutoSize = true;
-            this.lbl_votes.Location = new System.Drawing.Point(326, 44);
+            this.lbl_votes.Location = new System.Drawing.Point(326, 147);
             this.lbl_votes.Name = "lbl_votes";
             this.lbl_votes.Size = new System.Drawing.Size(13, 13);
             this.lbl_votes.TabIndex = 8;
@@ -146,7 +150,7 @@
             this.cb_logging.AutoSize = true;
             this.cb_logging.Checked = true;
             this.cb_logging.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_logging.Location = new System.Drawing.Point(15, 43);
+            this.cb_logging.Location = new System.Drawing.Point(87, 146);
             this.cb_logging.Name = "cb_logging";
             this.cb_logging.Size = new System.Drawing.Size(96, 17);
             this.cb_logging.TabIndex = 9;
@@ -184,7 +188,7 @@
             // 
             // nud_threads
             // 
-            this.nud_threads.Location = new System.Drawing.Point(76, 68);
+            this.nud_threads.Location = new System.Drawing.Point(87, 68);
             this.nud_threads.Minimum = new decimal(new int[] {
             1,
             0,
@@ -211,7 +215,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(182, 70);
+            this.label5.Location = new System.Drawing.Point(193, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 13;
@@ -219,7 +223,7 @@
             // 
             // tb_forceInput
             // 
-            this.tb_forceInput.Location = new System.Drawing.Point(76, 94);
+            this.tb_forceInput.Location = new System.Drawing.Point(87, 94);
             this.tb_forceInput.Name = "tb_forceInput";
             this.tb_forceInput.Size = new System.Drawing.Size(100, 20);
             this.tb_forceInput.TabIndex = 14;
@@ -253,7 +257,7 @@
             // 
             // nud_errors
             // 
-            this.nud_errors.Location = new System.Drawing.Point(76, 120);
+            this.nud_errors.Location = new System.Drawing.Point(87, 120);
             this.nud_errors.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -300,11 +304,49 @@
             this.lbl_errors.TabIndex = 21;
             this.lbl_errors.Text = "0";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Host URL";
+            // 
+            // tb_hostUrl
+            // 
+            this.tb_hostUrl.Location = new System.Drawing.Point(87, 41);
+            this.tb_hostUrl.Name = "tb_hostUrl";
+            this.tb_hostUrl.Size = new System.Drawing.Size(100, 20);
+            this.tb_hostUrl.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(274, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Active Host: ";
+            // 
+            // lbl_activeHost
+            // 
+            this.lbl_activeHost.AutoSize = true;
+            this.lbl_activeHost.Location = new System.Drawing.Point(348, 44);
+            this.lbl_activeHost.Name = "lbl_activeHost";
+            this.lbl_activeHost.Size = new System.Drawing.Size(33, 13);
+            this.lbl_activeHost.TabIndex = 25;
+            this.lbl_activeHost.Text = "None";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 370);
+            this.ClientSize = new System.Drawing.Size(480, 337);
+            this.Controls.Add(this.lbl_activeHost);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tb_hostUrl);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.lbl_errors);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -362,6 +404,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbl_errors;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tb_hostUrl;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_activeHost;
     }
 }
 

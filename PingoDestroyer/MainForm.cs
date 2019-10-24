@@ -19,9 +19,10 @@ namespace PingoDestroyer
     {
         private Helper connection;
 
-        private String baseUrl = "http://pingo.upb.de/";
+        //private String baseUrl = "http://pingo.upb.de/";
         private int sessionID = -1;
 
+        Uri baseUrl;
         Uri voteTarget;
         Uri currentTarget;
         bool working = false;
@@ -44,7 +45,6 @@ namespace PingoDestroyer
         {
             Logger.debug("Initialising...");
             InitializeComponent();
-            voteTarget = new Uri(baseUrl + "vote");
             status = new Label();
             status.AutoSize = true;
             status.Location = new Point(15, 15);
@@ -62,6 +62,21 @@ namespace PingoDestroyer
             {
                 this.sessionID = sid;
                 lbl_activeID.Text = this.sessionID.ToString();
+
+                try
+                {
+                    baseUrl = new Uri(tb_hostUrl.Text);
+                    lbl_activeHost.Text = baseUrl.ToString();
+                }
+                catch (Exception err)
+                {
+                    Program.LogException(err);
+                    gb_currentVote.Controls.Clear();
+                    gb_currentVote.Controls.Add(status);
+                    status.Text = "No valid host!";
+                    return;
+                }
+                voteTarget = new Uri(baseUrl, "vote");
 
                 this.maxErrors = Decimal.ToInt32(nud_errors.Value);
                 this.threadCount = Decimal.ToInt32(nud_threads.Value);
@@ -128,7 +143,7 @@ namespace PingoDestroyer
                     status.Text = "Refreshing...";
                 });
 
-                currentTarget = new Uri(baseUrl + sessionID);
+                currentTarget = new Uri(baseUrl, sessionID.ToString());
                 HttpWebResponse response = connection.get(currentTarget);
             
                 if (response == null)
